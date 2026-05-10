@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Types d'hypnose — L'Hypnose</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.type-list { display:flex; flex-direction:column; gap:0; margin-top:3rem; }
+.type-item { border:1px solid var(--border); border-bottom:none; background:var(--brun); overflow:hidden; }
+.type-item:last-child { border-bottom:1px solid var(--border); }
+.type-header { display:flex; align-items:center; gap:1.5rem; padding:1.8rem 2.5rem; cursor:pointer; transition:background .3s; }
+.type-header:hover { background:var(--brun-med); }
+.type-num { font-family:'Cormorant Garamond',serif; font-size:2.8rem; color:rgba(201,164,82,.18); font-weight:300; min-width:58px; line-height:1; }
+.type-info { flex:1; }
+.type-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--creme); margin-bottom:.2rem; }
+.type-tagline { font-size:.8rem; color:var(--texte-sec); margin-bottom:.6rem; }
+.type-toggle { width:30px; height:30px; border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--texte-sec); font-size:.85rem; flex-shrink:0; transition:all .3s; }
+.type-item.open .type-toggle { background:var(--or); color:var(--noir); border-color:var(--or); transform:rotate(45deg); }
+.type-body { display:none; padding:0 2.5rem 2.5rem 2.5rem; }
+.type-item.open .type-body { display:block; }
+.article-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
+.art-label { font-size:.63rem; letter-spacing:.25em; text-transform:uppercase; color:var(--or); margin-bottom:.65rem; display:block; margin-top:1.2rem; }
+.art-text { font-size:.86rem; color:var(--texte-sec); line-height:1.85; }
+.art-text p { margin-bottom:.75rem; }
+.art-text strong { color:var(--creme); }
+.usage-pills { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+.usage-pill { font-size:.72rem; padding:.3rem .9rem; background:rgba(201,164,82,.07); border:1px solid var(--border-fort); color:var(--or-clair); border-radius:1px; }
+@media(max-width:760px){ .article-grid{grid-template-columns:1fr} .type-header{padding:1.4rem 1.2rem} .type-body{padding:0 1.2rem 1.5rem} }
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-line"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow"><a href="index.html">Accueil</a> &nbsp;/&nbsp; Types d'hypnose</div>
+    <h1 class="page-hero-title">Les différents <em>types</em><br>d'hypnose</h1>
+    <p class="page-hero-sub">Sept courants majeurs — chacun avec son histoire, ses méthodes et ses applications propres.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="quote-block reveal">
+    <blockquote>"L'hypnose n'est pas ce que vous faites à quelqu'un. C'est quelque chose que vous faites avec quelqu'un."</blockquote>
+    <cite>— Milton H. Erickson</cite>
+  </div>
+
+  <div class="type-list">
+
+    <!-- ═══ 01 ERICKSONIENNE ═══ -->
+    <div class="type-item open reveal">
+      <div class="type-header" onclick="toggle(this)">
+        <div class="type-num">01</div>
+        <div class="type-info">
+          <div class="type-name">L'Hypnose Ericksonienne</div>
+          <div class="type-tagline">La plus répandue dans le monde occidental — douce, indirecte et permissive</div>
+          <div><span class="badge gold">Thérapeutique</span><span class="badge">Indirecte</span><span class="badge">Moderne</span></div>
+        </div>
+        <div class="type-toggle">✕</div>
+      </div>
+      <div class="type-body">
+        <div class="article-grid">
+          <div>
+            <span class="art-label">Origine &amp; Histoire</span>
+            <div class="art-text">
+              <p>L'hypnose ericksonienne doit son nom au psychiatre américain <strong>Milton H. Erickson (1901–1980)</strong>, considéré comme le père de l'hypnothérapie moderne. Atteint de poliomyélite à 17 ans et presque entièrement paralysé, Erickson utilisa l'autopersuasion pour récupérer partiellement ses fonctions motrices. Cette expérience intime forgea sa vision : l'inconscient n'est pas un réservoir de pulsions (comme le croyait Freud), mais une <strong>ressource inépuisable</strong> de guérison et d'adaptation.</p>
+              <p>À partir des années 1930, il développa une approche radicalement différente de l'hypnose classique de son époque. Il fonda l'American Society of Clinical Hypnosis en 1957. Dans les années 1970, Richard Bandler et John Grinder l'étudièrent intensément et codifièrent ses patterns linguistiques pour créer la PNL.</p>
+              <div class="timeline-bar"><div class="timeline-dot"></div><div class="timeline-text">Développée de <strong>1930 à 1980</strong> — codifiée dans les années 1970 par la PNL</div></div>
+            </div>
+          </div>
+          <div>
+            <span class="art-label">Comment ça fonctionne</span>
+            <div class="art-text">
+              <p>Contrairement à l'hypnose directive ("Dormez !"), l'approche ericksonienne utilise un langage <strong>indirect, métaphorique et permissif</strong>. Elle travaille avec les résistances du patient plutôt que contre elles. Si quelqu'un résiste, le thérapeute dit "vous pouvez résister autant que vous le souhaitez".</p>
+              <p>Les outils principaux : <strong>suggestions enchâssées</strong> (glissées dans des histoires), <strong>doubles liaisons</strong> ("Vous pouvez fermer les yeux maintenant, ou dans quelques secondes"), <strong>métaphores thérapeutiques</strong> adaptées à la réalité du patient, et <strong>utilisation</strong> de tous les comportements du sujet comme leviers.</p>
+            </div>
+            <div class="pros-cons">
+              <div class="pros"><h4>Avantages</h4><ul>
+                <li>Respecte le rythme du patient</li>
+                <li>Fonctionne sur les résistants</li>
+                <li>Applications très larges</li>
+                <li>Reconnue scientifiquement</li>
+              </ul></div>
+              <div class="cons"><h4>Limites</h4><ul>
+                <li>Formation longue (plusieurs années)</li>
+                <li>Résultats variables selon praticien</li>
+                <li>Peu spectaculaire pour le grand public</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+        <span class="art-label">Applications cliniques</span>
+        <div class="usage-pills">
+          <span class="usage-pill">Phobies &amp; anxiété</span><span class="usage-pill">Gestion de la douleur</span>
+          <span class="usage-pill">Troubles du sommeil</span><span class="usage-pill">Confiance en soi</span>
+          <span class="usage-pill">Préparation sportive</span><span class="usage-pill">Arrêt du tabac</span>
+          <span class="usage-pill">Deuil &amp; transitions</span><span class="usage-pill">Troubles psychosomatiques</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 02 CLASSIQUE ═══ -->
+    <div class="type-item reveal">
+      <div class="type-header" onclick="toggle(this)">
+        <div class="type-num">02</div>
+        <div class="type-info">
+          <div class="type-name">L'Hypnose Classique (Directive)</div>
+          <div class="type-tagline">L'hypnose des origines — directe, héritière de Mesmer, Braid et Charcot</div>
+          <div><span class="badge">Historique</span><span class="badge">Directive</span><span class="badge">Autoritaire</span></div>
+        </div>
+        <div class="type-toggle">+</div>
+      </div>
+      <div class="type-body">
+        <div class="article-grid">
+          <div>
+            <span class="art-label">Origine &amp; Histoire</span>
+            <div class="art-text">
+              <p>L'hypnose classique remonte au XVIIIe siècle avec <strong>Franz Anton Mesmer (1734–1815)</strong> et son concept de "magnétisme animal". Bien que ses théories fussent discréditées par une commission royale incluant Benjamin Franklin, ses pratiques induisaient réellement des états modifiés.</p>
+              <p><strong>James Braid (1795–1860)</strong>, chirurgien écossais, donna à la pratique son nom scientifique — du grec Hypnos, dieu du sommeil — et l'arracha au mysticisme. Au XIXe siècle, deux écoles rivales s'affrontèrent : l'<strong>École de Paris</strong> (Charcot, la Salpêtrière) qui pensait l'hypnose réservée aux hystériques, et l'<strong>École de Nancy</strong> (Bernheim, Liébeault) qui la voyait comme phénomène de suggestion normale.</p>
+              <p>Freud lui-même la pratiqua un temps avant d'y renoncer pour la psychanalyse.</p>
+            </div>
+          </div>
+          <div>
+            <span class="art-label">Mécanisme &amp; Usage</span>
+            <div class="art-text">
+              <p>L'hypnose directive fonctionne par <strong>injonctions directes</strong> : "Vous dormez", "Votre bras est lourd", "Vous ne ressentez plus la douleur". Elle suppose une relation d'autorité entre praticien et sujet.</p>
+              <p>Elle est efficace avec les <strong>sujets très suggestibles</strong> (~15–20% de la population) mais échoue souvent chez les personnes analytiques ou résistantes. C'est l'hypnose du spectacle — celle qu'on voit sur scène. En clinique médicale, elle reste utilisée pour l'<strong>hypno-analgésie</strong> en bloc opératoire, en complément ou substitut de l'anesthésie chimique.</p>
+            </div>
+            <div class="pros-cons">
+              <div class="pros"><h4>Avantages</h4><ul>
+                <li>Rapide et efficace sur sujets réceptifs</li>
+                <li>Effets immédiats et mesurables</li>
+                <li>Très utile en anesthésie médicale</li>
+              </ul></div>
+              <div class="cons"><h4>Limites</h4><ul>
+                <li>Inefficace sur ~80% des personnes</li>
+                <li>Relation déséquilibrée</li>
+                <li>Dérive possible vers la manipulation</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 03 SPECTACLE ═══ -->
+    <div class="type-item reveal">
+      <div class="type-header" onclick="toggle(this)">
+        <div class="type-num">03</div>
+        <div class="type-info">
+          <div class="type-name">L'Hypnose de Spectacle</div>
+          <div class="type-tagline">Divertissement et illusion — les coulisses d'un art de scène fascinant</div>
+          <div><span class="badge">Scénique</span><span class="badge">Sélective</span><span class="badge">Divertissement</span></div>
+        </div>
+        <div class="type-toggle">+</div>
+      </div>
+      <div class="type-body">
+        <div class="article-grid">
+          <div>
+            <span class="art-label">Ce que c'est vraiment</span>
+            <div class="art-text">
+              <p>L'hypnotiseur de scène est avant tout un <strong>excellent lecteur de personnes</strong>. Avant le spectacle, il effectue des tests de suggestibilité rapides (mains collées, bras rigide, chute en arrière). Il sélectionne précisément les <strong>5–10% de sujets les plus suggestibles</strong> dans la salle.</p>
+              <p>Sur scène, la <strong>pression sociale</strong> est un amplificateur puissant : entouré de caméras, de spectateurs et d'une foule qui attend du spectacle, le volontaire ne veut pas décevoir. Son cerveau social prend le dessus sur l'esprit critique, facilitant des réponses que l'hypnose seule n'aurait pas nécessairement produites.</p>
+              <p>La France encadre légalement cette pratique depuis 2015 — certaines démonstrations sont interdites avec des mineurs.</p>
+            </div>
+          </div>
+          <div>
+            <span class="art-label">Ce qui est vrai, ce qui est exagéré</span>
+            <div class="art-text">
+              <p>Les états produits sont <strong>authentiques</strong> : les sujets vivent réellement des phénomènes hypnotiques (analgésie, hallucinations commandées, amnésie post-hypnotique). Ce n'est pas du théâtre pur.</p>
+              <p>Ce qui est exagéré : l'idée que "l'hypnotiseur peut tout faire faire". En réalité, les sujets ne font jamais rien qui contrevient à leurs valeurs profondes — les scènes embarrassantes ne fonctionnent qu'avec des personnes qui, en réalité, veulent bien les vivre.</p>
+            </div>
+            <div class="pros-cons">
+              <div class="pros"><h4>Ce qui est réel</h4><ul>
+                <li>Les états produits sont authentiques</li>
+                <li>La sélection des sujets est précise</li>
+                <li>Suscite l'intérêt pour l'hypnose</li>
+              </ul></div>
+              <div class="cons"><h4>Ce qui est mythe</h4><ul>
+                <li>"On peut hypnotiser n'importe qui"</li>
+                <li>"Le sujet perd tout contrôle"</li>
+                <li>"L'hypnotiseur a un don spécial"</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 04 AUTOHYPNOSE ═══ -->
+    <div class="type-item reveal">
+      <div class="type-header" onclick="toggle(this)">
+        <div class="type-num">04</div>
+        <div class="type-info">
+          <div class="type-name">L'Autohypnose</div>
+          <div class="type-tagline">S'hypnotiser soi-même — la pratique la plus autonomisante et la plus accessible</div>
+          <div><span class="badge gold">Autonomie</span><span class="badge">Quotidien</span><span class="badge">Accessible</span></div>
+        </div>
+        <div class="type-toggle">+</div>
+      </div>
+      <div class="type-body">
+        <div class="article-grid">
+          <div>
+            <span class="art-label">Principe &amp; Histoire</span>
+            <div class="art-text">
+              <p><strong>Émile Coué (1857–1926)</strong>, pharmacien de Nancy, popularisa l'autohypnose avec sa célèbre formule quotidienne répétée 20 fois matin et soir. Ses résultats spectaculaires sur des patients qu'il aidait à guérir attirèrent l'attention internationale.</p>
+              <p>L'autohypnose repose sur la même neurologie que l'hypnose guidée — elle mobilise simplement la <strong>volonté intentionnelle</strong> du pratiquant pour induire et maintenir l'état. Elle est proche de la méditation, avec une différence clé : en autohypnose, on se donne délibérément des <strong>suggestions orientées vers un objectif</strong>.</p>
+              <p>Avec la pratique régulière, l'état s'installe en quelques secondes — comme un réflexe conditionné. Les athlètes de haut niveau, musiciens et comédiens l'utilisent massivement.</p>
+            </div>
+          </div>
+          <div>
+            <span class="art-label">Protocole rapide</span>
+            <div class="art-text">
+              <p><strong>1. Installation</strong> — Position confortable, lieu calme, yeux fermés.<br>
+              <strong>2. Respiration</strong> — 4 respirations profondes, expiration longue.<br>
+              <strong>3. Induction</strong> — Compter à rebours de 10 à 1 en s'imaginant descendre un escalier.<br>
+              <strong>4. Suggestion</strong> — Formuler 2–3 affirmations courtes, positives, au présent.<br>
+              <strong>5. Renforcement</strong> — Visualiser l'objectif atteint, ressentir l'émotion associée.<br>
+              <strong>6. Retour</strong> — Compter de 1 à 5, étirements.</p>
+            </div>
+            <div class="pros-cons">
+              <div class="pros"><h4>Avantages</h4><ul>
+                <li>Totalement autonome</li>
+                <li>Gratuit après apprentissage</li>
+                <li>Utilisable n'importe où</li>
+                <li>S'améliore avec la pratique</li>
+              </ul></div>
+              <div class="cons"><h4>Limites</h4><ul>
+                <li>Moins puissante pour traumas profonds</li>
+                <li>Demande de la régularité</li>
+                <li>Difficile pour esprits très agités</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:1.5rem;font-size:.84rem;color:var(--texte-sec)">→ <a href="autohypnose.html" style="color:var(--or);text-decoration:none">Guide complet de l'autohypnose en 6 étapes détaillées</a></p>
+      </div>
+    </div>
+
+    <!-- ═══ 05 REGRESSIVE ═══ -->
+    <div class="type-item reveal">
+      <div class="type-header" onclick="toggle(this)">
+        <div class="type-num">05</div>
+        <div class="type-info">
+          <div class="type-name">L'Hypnose Régressive</div>
+          <div class="type-tagline">Remonter dans les souvenirs — exploration thérapeutique de l'inconscient</div>
+          <div><span class="badge">Mémorielle</span><span class="badge">Trauma</span><span class="badge">Controversée</span></div>
+        </div>
+        <div class="type-toggle">+</div>
+      </div>
+      <div class="type-body">
+        <div class="article-grid">
+          <div>
+            <span class="art-label">Principe</span>
+            <div class="art-text">
+              <p>L'hypnose régressive vise à ramener le sujet à des souvenirs anciens — parfois très précoces (petite enfance, voire dans certaines variantes ésotériques, "vies antérieures"). L'idée thérapeutique : beaucoup de troubles actuels ont des <strong>racines enfouies</strong> que la conscience ordinaire ne peut plus atteindre.</p>
+              <p>En état hypnotique, le thérapeute guide le patient pour qu'il <strong>revisite un événement douloureux</strong> avec les ressources et la maturité de l'adulte qu'il est devenu — le "re-parentage" du soi enfant. Cela permet une <strong>recontextualisation</strong> profonde : l'événement reste dans la mémoire, mais sa charge émotionnelle diminue ou se transforme.</p>
+            </div>
+          </div>
+          <div>
+            <span class="art-label">Controverses &amp; Limites scientifiques</span>
+            <div class="art-text">
+              <p>C'est l'une des approches les plus <strong>controversées</strong>. Le problème central : la mémoire humaine n'est pas un enregistrement fidèle. Sous hypnose, le sujet peut créer des <strong>faux souvenirs</strong> qui semblent absolument réels — surtout si le thérapeute suggère involontairement.</p>
+              <p>Dans les années 1990, des procès impliquèrent des "souvenirs retrouvés" sous hypnose — parfois des accusations graves contre des innocents. L'APA met en garde contre son usage à des fins forensiques. Utilisée avec éthique, elle reste un outil en psychotraumatologie intégrative, toujours en complément d'autres approches.</p>
+            </div>
+            <div class="pros-cons">
+              <div class="pros"><h4>Potentiel</h4><ul>
+                <li>Accès à des états émotionnels enfouis</li>
+                <li>Recontextualisation de traumas</li>
+              </ul></div>
+              <div class="cons"><h4>Risques</h4><ul>
+                <li>Risque élevé de faux souvenirs</li>
+                <li>Encadrement rigoureux obligatoire</li>
+                <li>Déconseillée en solo</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 06 CONVERSATIONNELLE ═══ -->
+    <div class="type-item reveal">
+      <div class="type-header" onclick="toggle(this)">
+        <div class="type-num">06</div>
+        <div class="type-info">
+          <div class="type-name">L'Hypnose Conversationnelle</div>
+          <div class="type-tagline">Influencer à travers le langage ordinaire — l'hypnose invisible</div>
+          <div><span class="badge gold">Communication</span><span class="badge">Langage</span><span class="badge">Influence</span></div>
+        </div>
+        <div class="type-toggle">+</div>
+      </div>
+      <div class="type-body">
+        <div class="article-grid">
+          <div>
+            <span class="art-label">Ce que c'est</span>
+            <div class="art-text">
+              <p>L'hypnose conversationnelle intègre les techniques hypnotiques dans une conversation ordinaire — sans induction formelle, sans fauteuil, sans cérémonie. La personne n'est jamais explicitement "hypnotisée".</p>
+              <p>Elle repose sur les structures du <strong>Langage Milton</strong> : suggestions enchâssées ("En écoutant cela, tu peux commencer à remarquer…"), <strong>présuppositions</strong> ("Quand tu seras entré dans cet état" — présuppose que tu vas y entrer), <strong>doubles liaisons</strong>, <strong>ambiguïtés calculées</strong> et rythme vocal synchronisé à la respiration de l'interlocuteur.</p>
+              <p>Milton Erickson lui-même était connu pour induire des transes dans de simples conversations de salon.</p>
+            </div>
+          </div>
+          <div>
+            <span class="art-label">Usages &amp; Question éthique</span>
+            <div class="art-text">
+              <p>Des orateurs, thérapeutes, négociateurs et leaders charismatiques l'utilisent — souvent instinctivement. Steve Jobs était célèbre pour son "champ de distorsion de la réalité".</p>
+              <p>La question éthique est centrale : influencer sans consentement explicite pose des problèmes moraux. Dans un cadre thérapeutique consenti, c'est un outil remarquable. Dans la manipulation commerciale ou relationnelle, c'est une dérive. <strong>Apprendre à reconnaître ces techniques est en soi une protection.</strong></p>
+            </div>
+            <div class="pros-cons">
+              <div class="pros"><h4>Usages légitimes</h4><ul>
+                <li>Communication thérapeutique</li>
+                <li>Leadership bienveillant</li>
+                <li>Enseignement &amp; pédagogie</li>
+              </ul></div>
+              <div class="cons"><h4>Dérives possibles</h4><ul>
+                <li>Manipulation sans consentement</li>
+                <li>Vente agressive</li>
+                <li>Emprise relationnelle</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 07 EMDR/SOMATIQUE ═══ -->
+    <div class="type-item reveal">
+      <div class="type-header" onclick="toggle(this)">
+        <div class="type-num">07</div>
+        <div class="type-info">
+          <div class="type-name">Hypnose Médicale, EMDR &amp; Somatique</div>
+          <div class="type-tagline">Les approches validées par la science — là où neurologie et thérapie se rejoignent</div>
+          <div><span class="badge gold">Validé OMS</span><span class="badge">Neurologie</span><span class="badge">Médical</span></div>
+        </div>
+        <div class="type-toggle">+</div>
+      </div>
+      <div class="type-body">
+        <div class="article-grid">
+          <div>
+            <span class="art-label">Hypnose Médicale</span>
+            <div class="art-text">
+              <p>Pratiquée dans de nombreux hôpitaux français (CHU de Liège, Assistance Publique de Paris), l'hypnose médicale est utilisée comme <strong>complément ou substitut de l'anesthésie</strong> lors d'interventions chirurgicales, de soins douloureux, de chimiothérapies ou d'accouchements.</p>
+              <p>L'Institut HYPNOSIUM et l'CFHTB forment des milliers de soignants chaque année en France. Une méta-analyse de 2020 sur 85 études confirme l'efficacité sur la douleur aiguë et chronique.</p>
+            </div>
+          </div>
+          <div>
+            <span class="art-label">EMDR &amp; Thérapies Somatiques</span>
+            <div class="art-text">
+              <p>L'<strong>EMDR</strong> (Eye Movement Desensitization and Reprocessing), développée par Francine Shapiro en 1987, utilise des stimulations bilatérales alternées pour retraiter les souvenirs traumatiques. Bien qu'elle ne soit pas formellement de l'hypnose, elle induit des états très proches de la transe. <strong>Validée par l'OMS depuis 2013</strong> pour le PTSD.</p>
+              <p>Les <strong>thérapies somatiques</strong> (Peter Levine, Bessel van der Kolk) combinent conscience corporelle et états de transe légère pour libérer les traumas stockés dans le corps. Ces approches représentent l'avenir de la psychothérapie intégrative.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-bar" style="margin-top:1.5rem"><div class="timeline-dot"></div><div class="timeline-text">EMDR validée par l'OMS pour le PTSD en <strong>2013</strong>. L'hypnose médicale remboursée dans plusieurs pays européens depuis <strong>2017</strong></div></div>
+      </div>
+    </div>
+
+  </div><!-- /type-list -->
+
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <div style="text-align:center;padding:2rem 0 1rem" class="reveal">
+    <p style="font-size:.84rem;color:var(--texte-sec);margin-bottom:1.5rem">Prêt à aller plus loin ?</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="transe.html" style="padding:.8rem 2rem;background:var(--or);color:var(--noir);text-decoration:none;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-family:'DM Sans',sans-serif;border-radius:1px">Entrer en transe →</a>
+      <a href="autohypnose.html" style="padding:.8rem 2rem;border:1px solid var(--border-fort);color:var(--or);text-decoration:none;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-family:'DM Sans',sans-serif;border-radius:1px">Autohypnose →</a>
+    </div>
+  </div>
+
+</div><!-- /content-wrap -->
+
+<script src="nav.js"></script>
+<script>
+function toggle(header) {
+  const item = header.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.type-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*70); });
+  }, {threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+});
+</script>
+</body>
+</html>

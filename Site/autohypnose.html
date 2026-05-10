@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autohypnose — L'Hypnose</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.auto-intro { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; margin-bottom:4rem; }
+.protocol-section { background:var(--brun); border:1px solid var(--border); margin:3rem 0; }
+.protocol-header { padding:2rem 2.5rem; border-bottom:1px solid var(--border); }
+.protocol-steps { padding:0; }
+.protocol-step { display:grid; grid-template-columns:90px 1fr; border-bottom:1px solid var(--border); }
+.protocol-step:last-child { border-bottom:none; }
+.pstep-num { padding:2rem 0; text-align:center; border-right:1px solid var(--border); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3rem; }
+.pstep-num .num { font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:var(--or); font-weight:300; line-height:1; }
+.pstep-num .dur { font-size:.65rem; letter-spacing:.1em; color:var(--texte-sec); text-transform:uppercase; }
+.pstep-content { padding:1.8rem 2rem; }
+.pstep-title { color:var(--creme); font-size:.92rem; font-weight:500; margin-bottom:.4rem; }
+.pstep-text { font-size:.84rem; color:var(--texte-sec); line-height:1.82; }
+.pstep-text strong { color:var(--creme); }
+.pstep-text p { margin-bottom:.7rem; }
+.pstep-verbatim { margin-top:.9rem; padding:1rem 1.3rem; background:rgba(0,0,0,.25); border-left:2px solid rgba(201,164,82,.4); font-size:.82rem; color:var(--or-pale); font-style:italic; line-height:1.75; }
+.pstep-verbatim::before { content:'Exemple à prononcer intérieurement :'; display:block; font-style:normal; font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--texte-sec); margin-bottom:.5rem; }
+
+.tips-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--border); border:1px solid var(--border); margin-top:3rem; }
+.tip-card { background:var(--brun); padding:2rem 1.8rem; }
+.tip-icon { font-size:1.4rem; margin-bottom:1rem; display:block; }
+.tip-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--creme); margin-bottom:.6rem; }
+.tip-text { font-size:.82rem; color:var(--texte-sec); line-height:1.78; }
+
+.progression { margin:3rem 0; }
+.prog-row { display:flex; align-items:center; gap:1.5rem; padding:1.2rem 0; border-bottom:1px solid var(--border); }
+.prog-row:last-child { border-bottom:none; }
+.prog-period { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--or); min-width:120px; font-weight:300; }
+.prog-bar { flex:1; height:4px; background:var(--brun); border-radius:2px; overflow:hidden; }
+.prog-fill { height:100%; background:linear-gradient(to right,var(--brun-clair),var(--or)); border-radius:2px; }
+.prog-desc { font-size:.8rem; color:var(--texte-sec); min-width:220px; }
+
+.app-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5px; background:var(--border); border:1px solid var(--border); margin-top:2rem; }
+.app-card { background:var(--encre); padding:1.8rem 2rem; }
+.app-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--creme); margin-bottom:.5rem; }
+.app-text { font-size:.82rem; color:var(--texte-sec); line-height:1.78; }
+
+@media(max-width:760px){
+  .auto-intro { grid-template-columns:1fr; }
+  .protocol-step { grid-template-columns:60px 1fr; }
+  .tips-grid { grid-template-columns:1fr; }
+  .app-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-line"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow"><a href="index.html">Accueil</a> &nbsp;/&nbsp; Autohypnose</div>
+    <h1 class="page-hero-title">S'hypnotiser <em>soi-même</em></h1>
+    <p class="page-hero-sub">Un guide complet pour induire la transe sans thérapeute — de la préparation à la suggestion profonde.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- INTRO -->
+  <div class="auto-intro">
+    <div class="reveal">
+      <div class="s-eyebrow">Qu'est-ce que l'autohypnose ?</div>
+      <h2 class="s-title">Une compétence que <em>tout le monde</em> peut apprendre</h2>
+      <p style="font-size:.88rem;color:var(--texte-sec);line-height:1.85;margin-top:1rem">L'autohypnose est la capacité à induire soi-même un état hypnotique — sans guide, sans thérapeute, avec juste sa propre intention et quelques techniques simples. Neurologiquement, l'état produit est <strong style="color:var(--creme)">identique</strong> à celui d'une hypnose guidée.</p>
+      <p style="font-size:.88rem;color:var(--texte-sec);line-height:1.85;margin-top:.8rem">Milton Erickson disait que "toute hypnose est de l'autohypnose" — le thérapeute ne fait que créer les conditions dans lesquelles le sujet se laisse aller. En autohypnose, vous créez ces conditions vous-même.</p>
+      <p style="font-size:.88rem;color:var(--texte-sec);line-height:1.85;margin-top:.8rem">Avec de la pratique régulière (15 minutes par jour), la majorité des gens atteignent un état de transe légère à moyenne en quelques semaines. Les effets commencent à se faire sentir dès la première séance.</p>
+    </div>
+    <div class="reveal">
+      <div class="quote-block">
+        <blockquote>"Chaque personne est unique. Il n'y a donc pas de méthode universelle d'hypnose — il y a votre méthode, que vous découvrez en pratiquant."</blockquote>
+        <cite>— Émile Coué, précurseur de l'autohypnose</cite>
+      </div>
+      <div style="padding:1.5rem 2rem;border:1px solid var(--border);background:var(--brun);margin-top:1.5rem">
+        <div style="font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:1rem">Avant de commencer</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:.6rem">
+          <li style="font-size:.82rem;color:var(--texte-sec);padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--or)">◆</span> Choisissez un lieu calme, sans interruptions (20–30 min)</li>
+          <li style="font-size:.82rem;color:var(--texte-sec);padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--or)">◆</span> Éteignez notifications et téléphone</li>
+          <li style="font-size:.82rem;color:var(--texte-sec);padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--or)">◆</span> Asseyez-vous (ne vous allongez pas les premières fois — risque de s'endormir)</li>
+          <li style="font-size:.82rem;color:var(--texte-sec);padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--or)">◆</span> Préparez à l'avance votre formule de suggestion</li>
+          <li style="font-size:.82rem;color:var(--texte-sec);padding-left:1.2rem;position:relative"><span style="position:absolute;left:0;color:var(--or)">◆</span> Pas de pratique sous médicaments sédatifs ou alcool</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- PROTOCOLE COMPLET -->
+  <div class="reveal">
+    <div class="s-eyebrow">Guide étape par étape</div>
+    <h2 class="s-title">Le protocole <em>complet</em></h2>
+    <p class="s-lead">Ce protocole en 6 étapes est adapté aux débutants. Lisez-le entièrement avant votre première séance.</p>
+  </div>
+
+  <div class="protocol-section reveal">
+    <div class="protocol-header">
+      <div style="font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--or);margin-bottom:.4rem">Protocole</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--creme)">Autohypnose de base — durée totale : 20 à 30 minutes</div>
+    </div>
+    <div class="protocol-steps">
+
+      <div class="protocol-step">
+        <div class="pstep-num"><span class="num">1</span><span class="dur">2–3 min</span></div>
+        <div class="pstep-content">
+          <div class="pstep-title">Installation &amp; Ancrage corporel</div>
+          <div class="pstep-text">
+            <p>Installez-vous confortablement, dos droit, pieds à plat sur le sol, mains posées sur les cuisses (paumes vers le haut ou vers le bas, selon ce qui vous convient). Fermez les yeux.</p>
+            <p>Prenez conscience de votre corps en contact avec le siège. Sentez le poids de vos jambes, la chaleur de vos mains. Aucune pensée ne doit être chassée — laissez-les passer comme des nuages dans un ciel.</p>
+          </div>
+          <div class="pstep-verbatim">"Je suis ici, maintenant. Mon corps est lourd et détendu. Je n'ai nulle part où aller, rien à faire, pendant ces prochaines minutes."</div>
+        </div>
+      </div>
+
+      <div class="protocol-step">
+        <div class="pstep-num"><span class="num">2</span><span class="dur">3–4 min</span></div>
+        <div class="pstep-content">
+          <div class="pstep-title">Respiration cohérente &amp; Ralentissement</div>
+          <div class="pstep-text">
+            <p>Adoptez une respiration cohérente : <strong>inspirez 4 secondes</strong> — pause 1 seconde — <strong>expirez 6 secondes</strong>. L'expiration plus longue active le système parasympathique (repos).</p>
+            <p>Après 5 cycles, laissez votre respiration revenir à son rythme naturel, mais continuez à l'observer. Chaque expiration est une invitation à relâcher un peu plus.</p>
+          </div>
+          <div class="pstep-verbatim">"À chaque expiration, je m'enfonce un peu plus dans la détente. Mon corps respire tout seul."</div>
+        </div>
+      </div>
+
+      <div class="protocol-step">
+        <div class="pstep-num"><span class="num">3</span><span class="dur">4–5 min</span></div>
+        <div class="pstep-content">
+          <div class="pstep-title">Induction — La descente de l'escalier</div>
+          <div class="pstep-text">
+            <p>Imaginez que vous vous trouvez en haut d'un magnifique escalier de <strong>10 marches</strong>. Cet escalier descend vers un lieu de paix absolue — ce que ce lieu représente pour vous (jardin, plage, forêt, pièce cosy) est entièrement libre.</p>
+            <p>Commencez à descendre lentement, une marche à la fois, en comptant de 10 à 1. À chaque marche, murmurez intérieurement : "Je descends plus profond, je suis de plus en plus détendu(e)." Prenez 15 à 20 secondes par marche. Il n'y a pas de précipitation.</p>
+            <p>Quand vous arrivez en bas, imaginez que vous entrez dans ce lieu de paix. Prenez le temps de le percevoir avec tous vos sens — sons, lumières, températures, textures.</p>
+          </div>
+          <div class="pstep-verbatim">"Dix… je commence à descendre, je me laisse aller… Neuf… encore plus détendu(e)… Huit… mon esprit s'apaise… Sept…"</div>
+        </div>
+      </div>
+
+      <div class="protocol-step">
+        <div class="pstep-num"><span class="num">4</span><span class="dur">5–8 min</span></div>
+        <div class="pstep-content">
+          <div class="pstep-title">Approfondissement — La relaxation progressive</div>
+          <div class="pstep-text">
+            <p>Une fois dans votre lieu de paix, parcourez votre corps mentalement de la tête aux pieds, en relâchant chaque zone. Commencez par le cuir chevelu, le front, les tempes, les yeux (laissez-les "tomber" dans leurs orbites), les mâchoires (espacez légèrement les dents), le cou, les épaules…</p>
+            <p>Ne forcez rien. Chaque zone se détend simplement parce que vous lui accordez votre attention. Descendez jusqu'aux orteils.</p>
+            <p><strong>Signe que ça fonctionne :</strong> sensation de lourdeur dans les membres, picotements dans les mains, impression que votre corps devient plus grand ou au contraire très petit, absence de sensation dans certaines parties. C'est normal et sain.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="protocol-step">
+        <div class="pstep-num"><span class="num">5</span><span class="dur">5–8 min</span></div>
+        <div class="pstep-content">
+          <div class="pstep-title">Suggestion — Planter la graine</div>
+          <div class="pstep-text">
+            <p>C'est le cœur de la séance. Formulez votre suggestion mentalement — de façon calme, répétée, et <strong>au présent</strong>. Évitez les négations ("je ne stresse plus") au profit d'affirmations positives ("je suis serein(e) et centré(e)").</p>
+            <p>La règle des suggestions efficaces :</p>
+            <p><strong>Courtes</strong> — pas plus de 10–15 mots<br>
+            <strong>Au présent</strong> — "je suis" et non "je serai"<br>
+            <strong>Positives</strong> — ce que vous voulez, pas ce que vous fuyez<br>
+            <strong>Personnelles</strong> — à la première personne<br>
+            <strong>Accompagnées d'une image</strong> — visualisez l'état comme déjà vécu</p>
+            <p>Répétez votre suggestion 5 à 10 fois. Entre chaque répétition, laissez résonner les mots et observez les images qui surgissent. Si des doutes apparaissent, ne les combattez pas — laissez-les passer.</p>
+          </div>
+          <div class="pstep-verbatim">Exemples : "Je suis calme et confiant(e)" / "Mon sommeil est profond et réparateur" / "J'ai confiance en mes capacités" / "Mon corps est en bonne santé et en équilibre"</div>
+        </div>
+      </div>
+
+      <div class="protocol-step">
+        <div class="pstep-num"><span class="num">6</span><span class="dur">2–3 min</span></div>
+        <div class="pstep-content">
+          <div class="pstep-title">Retour — La remontée consciente</div>
+          <div class="pstep-text">
+            <p>Ne sortez jamais brusquement d'un état de transe. Utilisez un compte de <strong>1 à 5</strong>, progressif.</p>
+            <p>Optionnellement, installez une <strong>ancre de retour</strong> avant de remonter : pressez doucement votre pouce et index ensemble. Avec la pratique, ce geste seul pourra vous permettre de retrouver l'état en quelques secondes.</p>
+          </div>
+          <div class="pstep-verbatim">"Un… mon corps commence à revenir… Deux… mes bras et mes jambes retrouvent leur tonicité… Trois… je me sens alerte et bien dans mon corps… Quatre… presque totalement revenu(e)… Cinq — j'ouvre les yeux, complètement éveillé(e) et bien."</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROGRESSION -->
+  <div class="reveal">
+    <div class="s-eyebrow">Progression</div>
+    <h3 class="s-title" style="font-size:1.8rem">Ce à quoi s'attendre <em>semaine après semaine</em></h3>
+    <div class="progression">
+      <div class="prog-row">
+        <div class="prog-period">Semaine 1–2</div>
+        <div class="prog-bar"><div class="prog-fill" style="width:20%"></div></div>
+        <div class="prog-desc">Relaxation légère. L'esprit vagabonde beaucoup. C'est normal — persistez.</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-period">Semaine 3–4</div>
+        <div class="prog-bar"><div class="prog-fill" style="width:40%"></div></div>
+        <div class="prog-desc">Sensation de lourdeur, visualisations plus nettes. L'induction s'accélère.</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-period">Mois 2–3</div>
+        <div class="prog-bar"><div class="prog-fill" style="width:65%"></div></div>
+        <div class="prog-desc">Transe légère à moyenne en 3–5 minutes. Premiers effets durables des suggestions.</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-period">Mois 4–6</div>
+        <div class="prog-bar"><div class="prog-fill" style="width:80%"></div></div>
+        <div class="prog-desc">L'ancre de retour fonctionne. Accès à la transe en quelques respirations.</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-period">Après 6 mois</div>
+        <div class="prog-bar"><div class="prog-fill" style="width:100%"></div></div>
+        <div class="prog-desc">Maîtrise. Transe à la demande, suggestions profondes, ancres multiples.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONSEILS AVANCÉS -->
+  <div class="reveal">
+    <div class="s-eyebrow">Aller plus loin</div>
+    <h3 class="s-title" style="font-size:1.8rem">Conseils pour <em>progresser rapidement</em></h3>
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card reveal">
+      <span class="tip-icon">🎵</span>
+      <div class="tip-title">Musique binaurale</div>
+      <div class="tip-text">Les sons binauraux (fréquences thêta 4–8 Hz) synchronisent les ondes cérébrales avec l'état hypnotique. Utilisez des casques audio fermés pour un effet maximal. Cherchez "binaural beats theta hypnosis" sur YouTube.</div>
+    </div>
+    <div class="tip-card reveal">
+      <span class="tip-icon">📓</span>
+      <div class="tip-title">Journal de séances</div>
+      <div class="tip-text">Notez immédiatement après chaque séance : profondeur ressentie (1–10), images survenues, sensations physiques, et effets observés dans les heures suivantes. Ce journal vous révèle votre progression et vos patterns personnels.</div>
+    </div>
+    <div class="tip-card reveal">
+      <span class="tip-icon">⏰</span>
+      <div class="tip-title">Meilleur moment</div>
+      <div class="tip-text">Le matin au réveil (entre rêve et veille) et le soir avant le sommeil sont les moments où le cerveau est naturellement en ondes alpha/thêta. La résistance est moindre, l'accès à l'état plus facile.</div>
+    </div>
+    <div class="tip-card reveal">
+      <span class="tip-icon">🔁</span>
+      <div class="tip-title">La même suggestion pendant 21 jours</div>
+      <div class="tip-text">Ne changez pas votre suggestion d'objectif trop souvent. Les neurosciences suggèrent qu'un minimum de 21 répétitions régulières est nécessaire pour créer une nouvelle voie neuronale. La cohérence prime sur la variété.</div>
+    </div>
+    <div class="tip-card reveal">
+      <span class="tip-icon">🖐️</span>
+      <div class="tip-title">Ancres gestuelles</div>
+      <div class="tip-text">Au pic de votre état de transe le plus profond, serrez légèrement votre poing non-dominant 3 fois. Avec de la pratique, ce geste seul déclenchera un accès rapide à la détente, même en situation de stress.</div>
+    </div>
+    <div class="tip-card reveal">
+      <span class="tip-icon">🧘</span>
+      <div class="tip-title">Combiner méditation et autohypnose</div>
+      <div class="tip-text">Commencez par 5 minutes de méditation pleine conscience pour calmer le mental, puis enchaînez avec votre protocole d'autohypnose. Cette séquence accélère significativement l'induction pour les débutants.</div>
+    </div>
+  </div>
+
+  <!-- APPLICATIONS -->
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+  <div class="reveal">
+    <div class="s-eyebrow">Applications</div>
+    <h3 class="s-title" style="font-size:1.8rem">Ce pour quoi <em>l'autohypnose fonctionne</em></h3>
+  </div>
+  <div class="app-grid">
+    <div class="app-card reveal">
+      <div class="app-name">Gestion du stress &amp; anxiété</div>
+      <div class="app-text">Suggestion recommandée : "Je suis calme et ancré(e) dans le moment présent. Mon corps sait comment se détendre profondément." Associée à une visualisation de soi dans un moment de sérénité totale.</div>
+    </div>
+    <div class="app-card reveal">
+      <div class="app-name">Amélioration du sommeil</div>
+      <div class="app-text">À pratiquer au lit, allongé, juste avant le sommeil. "Mon corps s'endort naturellement, facilement, chaque soir. Mon sommeil est profond et réparateur." Ne pas prévoir de retour — laisser le sommeil arriver naturellement.</div>
+    </div>
+    <div class="app-card reveal">
+      <div class="app-name">Confiance &amp; performance</div>
+      <div class="app-text">Idéal avant une présentation, un entretien ou une compétition. Visualiser précisément la situation à venir, se voir la traverser avec aisance et compétence. "Je suis pleinement en possession de mes moyens."</div>
+    </div>
+    <div class="app-card reveal">
+      <div class="app-name">Gestion de la douleur chronique</div>
+      <div class="app-text">L'autohypnose est cliniquement efficace pour la douleur chronique (fibromyalgie, migraines, lombalgies). Visualiser la zone douloureuse comme une lumière que l'on peut ajuster en intensité et en couleur. À pratiquer avec le suivi d'un médecin.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:3rem 0 1rem" class="reveal">
+    <a href="induction.html" style="padding:.85rem 2.5rem;background:var(--or);color:var(--noir);text-decoration:none;font-size:.77rem;letter-spacing:.14em;text-transform:uppercase;font-family:'DM Sans',sans-serif;border-radius:1px;display:inline-block">Apprendre à hypnotiser quelqu'un →</a>
+  </div>
+
+</div>
+
+<script src="nav.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*70); });
+  }, {threshold:.06});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+});
+</script>
+</body>
+</html>

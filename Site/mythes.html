@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mythes & Réalités — L'Hypnose</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Mythes */
+.mythes-intro { max-width:720px; margin:0 auto 4rem; text-align:center; }
+.mythes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--border); border:1px solid var(--border); margin:2.5rem 0; }
+.mythe-card { background:var(--encre); padding:2.2rem 2rem; transition:background .3s; }
+.mythe-card:hover { background:var(--brun); }
+.mythe-label { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(220,100,100,.75); margin-bottom:.5rem; display:block; }
+.mythe-claim { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--creme); font-style:italic; margin-bottom:1rem; line-height:1.4; }
+.mythe-sep { width:32px; height:1px; background:var(--or); opacity:.35; margin-bottom:1rem; }
+.realite-label { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(100,200,120,.75); margin-bottom:.5rem; display:block; }
+.mythe-truth { font-size:.81rem; color:var(--texte-sec); line-height:1.78; }
+.mythe-truth strong { color:var(--creme); }
+
+/* Science section */
+.science-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:2.5rem 0; }
+.sci-card { padding:2rem; border:1px solid var(--border); background:var(--brun); }
+.sci-study { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--or); margin-bottom:.6rem; display:block; }
+.sci-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--creme); margin-bottom:.8rem; }
+.sci-text { font-size:.82rem; color:var(--texte-sec); line-height:1.78; }
+.sci-result { margin-top:.9rem; padding:.8rem 1rem; background:rgba(100,200,120,.05); border-left:2px solid rgba(100,200,120,.4); font-size:.8rem; color:rgba(150,220,150,.9); font-style:italic; }
+
+/* FAQ */
+.faq-section { margin-top:4rem; }
+.faq-list { display:flex; flex-direction:column; gap:.4rem; }
+.faq-item { border:1px solid var(--border); background:var(--brun); overflow:hidden; }
+.faq-q { padding:1.4rem 1.8rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color:var(--creme); font-size:.9rem; transition:color .25s; user-select:none; }
+.faq-q:hover { color:var(--or); }
+.faq-icon { color:var(--texte-sec); font-size:.85rem; transition:transform .3s; flex-shrink:0; margin-left:1rem; }
+.faq-item.open .faq-icon { transform:rotate(45deg); color:var(--or); }
+.faq-a { display:none; padding:0 1.8rem 1.5rem; border-top:1px solid var(--border); }
+.faq-a-inner { padding-top:1.2rem; font-size:.84rem; color:var(--texte-sec); line-height:1.85; }
+.faq-a-inner p { margin-bottom:.7rem; }
+.faq-a-inner strong { color:var(--creme); }
+.faq-item.open .faq-a { display:block; }
+.faq-category { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--or); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+
+/* Qui peut pratiquer */
+.profils-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin:2rem 0; }
+.profil { background:var(--brun); padding:1.8rem 1.5rem; text-align:center; }
+.profil-icon { font-size:1.8rem; margin-bottom:.8rem; display:block; }
+.profil-name { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--creme); margin-bottom:.4rem; }
+.profil-text { font-size:.75rem; color:var(--texte-sec); line-height:1.65; }
+
+@media(max-width:960px){
+  .mythes-grid { grid-template-columns:1fr 1fr; }
+  .science-grid { grid-template-columns:1fr; }
+  .profils-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px){
+  .mythes-grid { grid-template-columns:1fr; }
+  .profils-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-line"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow"><a href="index.html">Accueil</a> &nbsp;/&nbsp; Mythes &amp; FAQ</div>
+    <h1 class="page-hero-title">Mythes &amp; <em>Réalités</em></h1>
+    <p class="page-hero-sub">L'hypnose est entourée de plus de fictions que presque n'importe quelle autre pratique. Démêlons le vrai du faux avec les neurosciences actuelles.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- INTRO -->
+  <div class="mythes-intro reveal">
+    <div class="s-eyebrow" style="justify-content:center">Démystification</div>
+    <h2 class="s-title">Ce que l'hypnose <em>n'est pas</em></h2>
+    <p class="s-lead" style="margin:1rem auto 0">Hollywood, les spectacles de music-hall et les siècles de mystification ont construit une image de l'hypnose qui n'a presque rien à voir avec la réalité clinique et neuroscientifique. Voici les 9 mythes les plus répandus.</p>
+  </div>
+
+  <!-- MYTHES -->
+  <div class="mythes-grid">
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°1</span>
+      <div class="mythe-claim">"Sous hypnose, on perd le contrôle de soi"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth">C'est le mythe le plus répandu et le plus faux. En état hypnotique, vous ne ferez jamais rien qui contrevient à vos valeurs profondes ou à votre sens moral. Vous pouvez sortir de transe à tout moment, de votre propre initiative. <strong>Vous êtes en réalité plus conscient de vous-même, pas moins.</strong></div>
+    </div>
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°2</span>
+      <div class="mythe-claim">"L'hypnose c'est du sommeil"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth">L'EEG (électroencéphalogramme) montre que l'activité cérébrale en état hypnotique est radicalement différente du sommeil. <strong>Le sujet est parfaitement conscient, attentif, et mémorise tout</strong> ce qui se passe — sauf suggestion d'amnésie spécifique. Le mot "hypnose" (du grec Hypnos, sommeil) est trompeur.</div>
+    </div>
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°3</span>
+      <div class="mythe-claim">"Seules les personnes faibles ou crédules sont hypnotisables"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth">C'est exactement l'inverse. Les recherches montrent que <strong>l'intelligence, la créativité et la capacité de concentration sont corrélées positivement avec la suggestibilité hypnotique.</strong> Les meilleurs sujets sont souvent des artistes, lecteurs passionnés, musiciens et sportifs de haut niveau.</div>
+    </div>
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°4</span>
+      <div class="mythe-claim">"L'hypnose permet d'accéder à des souvenirs exacts et vérifiables"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth">La mémoire humaine est <strong>reconstructive, pas enregistrative.</strong> Elle se réécrit à chaque rappel. Sous hypnose, les faux souvenirs sont plus faciles à créer, pas plus difficiles. C'est pourquoi l'hypnose forensique est interdite comme preuve dans la plupart des pays.</div>
+    </div>
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°5</span>
+      <div class="mythe-claim">"L'hypnose peut tout guérir en une seule séance"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth">Certains problèmes bien circonscrits (phobies spécifiques simples, tics, habitudes récentes) répondent parfois en 1–3 séances. Mais <strong>les traumas complexes, dépressions, troubles de la personnalité et addictions profondes nécessitent un accompagnement long</strong> et pluridisciplinaire. Méfiez-vous des promesses de guérison rapide.</div>
+    </div>
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°6</span>
+      <div class="mythe-claim">"On peut rester "coincé" en état d'hypnose"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth"><strong>Jamais documenté dans toute l'histoire de l'hypnose clinique.</strong> Dans le pire des cas, sans retour guidé, le sujet sort spontanément de transe après quelques minutes — ou s'endort et se réveille normalement. L'état hypnotique ne se "maintient" pas sans coopération active du sujet.</div>
+    </div>
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°7</span>
+      <div class="mythe-claim">"On peut hypnotiser quelqu'un sans qu'il le sache ou le veuille"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth">Entrer en transe hypnotique profonde <strong>nécessite une coopération active du sujet.</strong> L'hypnose conversationnelle peut augmenter l'influence et la suggestibilité, mais une vraie transe sans aucune connivence d'une personne méfiante est quasiment impossible. Votre méfiance vous protège.</div>
+    </div>
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°8</span>
+      <div class="mythe-claim">"L'hypnose est dangereuse pour le cerveau"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth"><strong>Aucun dommage neurologique lié à l'hypnose n'a jamais été documenté.</strong> Les risques réels viennent de praticiens incompétents ou malveillants, de suggestions inappropriées, ou de l'aggravation de troubles psychiatriques préexistants graves (psychoses actives). L'hypnose est contre-indiquée en cas d'épisode psychotique.</div>
+    </div>
+
+    <div class="mythe-card reveal">
+      <span class="mythe-label">Mythe n°9</span>
+      <div class="mythe-claim">"L'hypnose c'est ésotérique, ce n'est pas de la science"</div>
+      <div class="mythe-sep"></div>
+      <span class="realite-label">Réalité</span>
+      <div class="mythe-truth">L'hypnose est <strong>l'une des phénomènes psychologiques les plus étudiés au monde.</strong> Des milliers d'études publiées dans des revues peer-reviewed documentent ses effets. L'IRM fonctionnelle en cartographie les mécanismes. L'OMS la recommande pour le PTSD. Elle est pratiquée dans les plus grands hôpitaux universitaires.</div>
+    </div>
+
+  </div>
+
+  <!-- CE QUE DIT LA SCIENCE -->
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <div class="reveal">
+    <div class="s-eyebrow">Études clés</div>
+    <h2 class="s-title">Ce que dit <em>la science</em></h2>
+    <p class="s-lead">Une sélection d'études fondatrices qui établissent la réalité neurologique et clinique de l'hypnose.</p>
+  </div>
+  <div class="science-grid">
+    <div class="sci-card reveal">
+      <span class="sci-study">Stanford University — Spiegel et al., 2016</span>
+      <div class="sci-title">Trois signatures cérébrales de l'état hypnotique en IRM fonctionnelle</div>
+      <div class="sci-text">La première étude à identifier par neuroimagerie des corrélats cérébraux spécifiques à l'état hypnotique. Les chercheurs ont identifié 3 changements distincts : réduction de l'activité du cortex cingulaire antérieur dorsal, augmentation de la connectivité préfrontal-insula, et réduction du couplage réseau d'action/conscience de soi.</div>
+      <div class="sci-result">→ L'hypnose est un état neurologique distinct, mesurable et reproductible.</div>
+    </div>
+    <div class="sci-card reveal">
+      <span class="sci-study">Harvard Medical School — Thompson et al., 2019</span>
+      <div class="sci-title">Méta-analyse sur 85 études : hypnose et gestion de la douleur</div>
+      <div class="sci-text">Portant sur 85 essais cliniques contrôlés et plus de 3 000 patients, cette méta-analyse confirme l'efficacité de l'hypnose pour la douleur aiguë et chronique, avec une réduction moyenne de l'intensité douloureuse de 30 à 50%. Particulièrement efficace pour les douleurs liées au cancer, aux procédures médicales, et aux migraines.</div>
+      <div class="sci-result">→ L'hypnose est 3x plus efficace que le placebo pour la douleur chronique.</div>
+    </div>
+    <div class="sci-card reveal">
+      <span class="sci-study">University of Iowa — Kihlstrom, 2008</span>
+      <div class="sci-title">La suggestibilité hypnotique est un trait stable mesurable</div>
+      <div class="sci-text">Des décennies de recherches montrent que la suggestibilité hypnotique est un trait de personnalité relativement stable dans le temps, mesurable avec des outils validés (Stanford Hypnotic Susceptibility Scale). Elle est distribuée en courbe de Gauss dans la population — environ 10% sont très susceptibles, 10% très résistants, et 80% entre les deux.</div>
+      <div class="sci-result">→ La suggestibilité varie — mais elle n'est pas corrélée à la naïveté ou à la faiblesse.</div>
+    </div>
+    <div class="sci-card reveal">
+      <span class="sci-study">OMS & American Psychological Association</span>
+      <div class="sci-title">Recommandations cliniques officielles pour l'hypnose</div>
+      <div class="sci-text">L'OMS recommande l'EMDR (proche de l'hypnose) comme traitement de premier rang pour le PTSD depuis 2013. L'APA reconnaît l'hypnose comme intervention psychologique légitime. En France, l'HAS (Haute Autorité de Santé) recommande l'hypnose médicale en complément des soins conventionnels pour la douleur procédurale, les nausées chimio-induites et certains troubles fonctionnels.</div>
+      <div class="sci-result">→ L'hypnose médicale est reconnue et recommandée par les instances de santé publique.</div>
+    </div>
+  </div>
+
+  <!-- QUI PEUT PRATIQUER -->
+  <div class="reveal" style="margin-top:3rem">
+    <div class="s-eyebrow">Pour qui ?</div>
+    <h2 class="s-title">À qui s'adresse <em>l'hypnose ?</em></h2>
+  </div>
+  <div class="profils-grid">
+    <div class="profil reveal">
+      <span class="profil-icon">🌱</span>
+      <div class="profil-name">Le curieux</div>
+      <div class="profil-text">Qui veut comprendre ce phénomène fascinant et explorer ses propres états de conscience à travers l'autohypnose.</div>
+    </div>
+    <div class="profil reveal">
+      <span class="profil-icon">🧘</span>
+      <div class="profil-name">Le praticien du bien-être</div>
+      <div class="profil-text">Coach, prof de yoga, thérapeute qui souhaite enrichir sa pratique avec des outils de communication hypnotique éthiques.</div>
+    </div>
+    <div class="profil reveal">
+      <span class="profil-icon">🏥</span>
+      <div class="profil-name">Le professionnel de santé</div>
+      <div class="profil-text">Médecin, infirmier, dentiste, psychologue qui veut intégrer l'hypnose médicale dans ses soins pour réduire la douleur et l'anxiété.</div>
+    </div>
+    <div class="profil reveal">
+      <span class="profil-icon">🎯</span>
+      <div class="profil-name">La personne en quête de changement</div>
+      <div class="profil-text">Qui veut travailler sur une phobie, arrêter de fumer, mieux dormir ou renforcer sa confiance en soi avec l'aide d'un hypnothérapeute qualifié.</div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section" id="faq">
+    <div class="reveal">
+      <div class="s-eyebrow">Questions fréquentes</div>
+      <h2 class="s-title">Vos questions, <em>nos réponses</em></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-category">Apprendre l'hypnose</div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Combien de temps faut-il pour apprendre l'hypnose ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Cela dépend de l'objectif. <strong>L'autohypnose</strong> s'apprend en quelques semaines de pratique quotidienne de 15–20 minutes. Des résultats sont souvent perceptibles dès la première séance.</p>
+          <p>Pour <strong>pratiquer sur autrui</strong> à titre personnel (non professionnel), comptez 6 à 12 mois de pratique régulière avec des bases théoriques solides. Pour exercer en tant qu'<strong>hypnothérapeute professionnel</strong>, les formations sérieuses durent entre 1 et 3 ans (200 à 500 heures selon les écoles). La maîtrise — comme tout art — est un processus de toute une vie.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Existe-t-il des formations reconnues en France ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Oui. Plusieurs organisations structurent la profession en France :</p>
+          <p><strong>La Chambre Syndicale de l'Hypnose (CSH)</strong> — organisation représentative des hypnothérapeutes.<br>
+          <strong>L'AFHyp</strong> (Association Française pour l'étude de l'Hypnose Médicale) — pour les professionnels de santé.<br>
+          <strong>L'IFHE</strong> (Institut Français d'Hypnose Ericksonienne) et plusieurs instituts régionaux proposent des formations de qualité.</p>
+          <p>Méfiez-vous des certifications obtenues en 2–3 jours de week-end : elles sont insuffisantes pour une pratique sérieuse. Une bonne formation inclut au minimum 200h de cours théoriques ET pratiques, avec supervision.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Peut-on s'hypnotiser avec des vidéos YouTube ou des applications ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Oui, avec des nuances. Les <strong>séances guidées audio/vidéo</strong> peuvent induire des états de relaxation profonde et de transe légère, parfois suffisants pour des objectifs simples (relaxation, sommeil, confiance). Des études montrent leur efficacité partielle pour la gestion du stress.</p>
+          <p>Cependant, elles manquent de <strong>personnalisation</strong> — un bon hypnothérapeute adapte chaque séance à la réalité unique de la personne, observe ses réactions en temps réel, et ajuste son approche. Pour des enjeux thérapeutiques significatifs (phobies, traumas, troubles persistants), rien ne remplace un praticien en direct.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-category">Effets et efficacité</div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">L'hypnose peut-elle aider à arrêter de fumer ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>C'est l'une des applications les mieux documentées. Une méta-analyse de 2010 dans le <em>International Journal of Clinical and Experimental Hypnosis</em> montre que l'hypnose est significativement plus efficace que les substituts nicotiniques seuls ou l'arrêt sans aide.</p>
+          <p>Les meilleurs résultats combinent <strong>2–3 séances d'hypnose ericksonienne</strong> avec un travail sur les déclencheurs comportementaux, la gestion du stress, et parfois un traitement médical si nécessaire. La motivation du patient est le facteur prédictif le plus important : l'hypnose amplifie la volonté, elle ne la remplace pas.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Quelle est la différence entre hypnose et méditation ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Les deux états partagent des caractéristiques neurologiques communes : activation des ondes alpha et thêta, réduction de l'activité du réseau du mode par défaut (le "mental qui tourne"), focalisation de l'attention.</p>
+          <p>La différence principale est <strong>l'orientation</strong> : la méditation vise généralement un état de conscience "ouvert" ou d'observation sans attachement — on observe ses pensées sans les diriger. L'hypnose oriente l'attention vers un <strong>objectif précis</strong> et implique des suggestions directionnelles. L'une n'exclut pas l'autre — de nombreux méditants expérimentés sont d'excellents sujets hypnotiques.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Est-ce que tout le monde peut être hypnotisé ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Environ <strong>85–90%</strong> de la population peut entrer en transe hypnotique légère à moyenne. Seulement 10–15% sont des "somnambulistes" naturels atteignant très facilement des transes profondes. Les 10–15% restants semblent très résistants à l'hypnose classique — mais répondent souvent bien aux approches indirectes ericksoniennes.</p>
+          <p>La résistance n'est jamais absolue. Elle dépend souvent du contexte (confiance, lieu, état émotionnel) et de la méthode utilisée. Un praticien expérimenté trouve généralement un chemin, même avec les sujets difficiles.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">L'hypnose fonctionne-t-elle sur les enfants ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Oui — et souvent très bien. Les enfants entre 7 et 14 ans ont généralement une <strong>suggestibilité hypnotique plus élevée</strong> que les adultes, car leur esprit critique est encore moins développé et leur imagination naturellement plus active.</p>
+          <p>L'hypnose pédiatrique est utilisée dans des hôpitaux spécialisés pour gérer la douleur lors des soins (pansements de brûlures, ponctions lombaires), réduire l'anxiété pré-opératoire, et traiter certains troubles fonctionnels (énurésie, tics, phobies scolaires). Elle nécessite toujours la présence et le consentement des parents, et un praticien spécialement formé à cette population.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-category">Trouver un praticien</div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Comment choisir un bon hypnothérapeute ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p><strong>Vérifiez la formation :</strong> au minimum 200h dans une école reconnue. Demandez-leur de vous décrire leur parcours de formation — un bon praticien est fier de le détailler.</p>
+          <p><strong>Méfiez-vous des red flags :</strong> promesses de guérison garantie en une séance pour des problèmes complexes, tarifs anormalement bas OU très élevés sans justification, praticien qui vous décourage de consulter un médecin en parallèle, qui entretient une dépendance en multipliant les séances sans objectif clair.</p>
+          <p><strong>Bons signes :</strong> premier entretien gratuit ou court pour établir le rapport et cadrer l'objectif, approche collaborative ("on travaille ensemble"), respect de votre rythme, transparence sur les techniques utilisées, et encouragement vers l'autonomie à terme.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Combien coûte une séance d'hypnothérapie ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>En France, les tarifs varient généralement entre <strong>60 et 150€ la séance</strong> d'environ 1h à 1h30. Les praticiens avec une formation de base de santé (médecin, psychologue, infirmier) peuvent facturer davantage — et certains peuvent être partiellement remboursés via les complémentaires santé.</p>
+          <p>L'hypnose n'est pas remboursée par la Sécurité Sociale en France, sauf dans le cadre de soins hospitaliers. Certaines mutuelles remboursent cependant une partie des séances avec un praticien certifié — vérifiez votre contrat.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">L'hypnose à distance (en visioconférence) fonctionne-t-elle ?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Oui, dans une large mesure. Plusieurs études publiées pendant et après la pandémie de Covid confirment que l'hypnose via visioconférence produit des effets comparables à l'hypnose en présentiel pour la majorité des applications (gestion du stress, sommeil, phobies légères, confiance en soi).</p>
+          <p>Les limites : le praticien ne peut pas observer aussi finement les signaux physiologiques subtils, et certaines techniques kinesthésiques (ancrages physiques, inductions par contact) sont impossibles. Pour des traumas complexes ou des transes très profondes, le présentiel reste préférable.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div><!-- /faq -->
+
+  <div style="text-align:center;padding:4rem 0 1rem" class="reveal">
+    <p style="font-size:.84rem;color:var(--texte-sec);margin-bottom:1.8rem">Vous avez parcouru tous nos modules. Prêt à commencer la pratique ?</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="autohypnose.html" style="padding:.85rem 2.5rem;background:var(--or);color:var(--noir);text-decoration:none;font-size:.77rem;letter-spacing:.14em;text-transform:uppercase;font-family:'DM Sans',sans-serif;border-radius:1px;display:inline-block">Commencer l'autohypnose →</a>
+      <a href="index.html" style="padding:.85rem 2.5rem;border:1px solid var(--border-fort);color:var(--or);text-decoration:none;font-size:.77rem;letter-spacing:.14em;text-transform:uppercase;font-family:'DM Sans',sans-serif;border-radius:1px;display:inline-block">← Accueil</a>
+    </div>
+  </div>
+
+</div>
+
+<script src="nav.js"></script>
+<script>
+function toggleFaq(q) {
+  const item = q.parentElement;
+  const wasOpen = item.classList.contains('open');
+  // Fermer tous les autres
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*60); });
+  }, {threshold:.05});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+});
+</script>
+</body>
+</html>

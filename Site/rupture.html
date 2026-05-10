@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rupture de Pattern — L'Hypnose</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.rp-hero-concept { display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-bottom:3rem; }
+
+/* Schéma neurologique visuel */
+.schema-box { background:var(--brun); border:1px solid var(--border); padding:2.5rem; }
+.schema-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--creme); margin-bottom:1.5rem; }
+.schema-flow { display:flex; flex-direction:column; gap:0; }
+.schema-node { display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem; background:rgba(0,0,0,.2); border:1px solid var(--border); margin-bottom:-1px; position:relative; }
+.schema-node.interrupt { border-color:rgba(200,80,80,.5); background:rgba(200,80,80,.05); }
+.schema-node.open { border-color:rgba(100,200,120,.4); background:rgba(100,200,120,.04); }
+.schema-node-icon { font-size:1.2rem; flex-shrink:0; }
+.schema-node-text { font-size:.81rem; color:var(--texte-sec); line-height:1.65; }
+.schema-node-text strong { color:var(--creme); }
+.schema-arrow { text-align:center; padding:.2rem 0; color:var(--or); font-size:.85rem; opacity:.5; }
+
+/* Techniques grid */
+.techniques-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5px; background:var(--border); border:1px solid var(--border); margin:2.5rem 0; }
+.tech-card { background:var(--brun); padding:2.5rem 2.2rem; position:relative; overflow:hidden; }
+.tech-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--or); opacity:.4; }
+.tech-num { font-family:'Cormorant Garamond',serif; font-size:3.5rem; color:rgba(201,164,82,.07); position:absolute; top:.8rem; right:1.5rem; line-height:1; font-weight:300; }
+.tech-tag { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--or); margin-bottom:.6rem; display:block; }
+.tech-name { font-family:'Cormorant Garamond',serif; font-size:1.35rem; color:var(--creme); margin-bottom:1rem; line-height:1.2; }
+.tech-text { font-size:.83rem; color:var(--texte-sec); line-height:1.82; }
+.tech-text p { margin-bottom:.7rem; }
+.tech-text strong { color:var(--creme); }
+.tech-example { margin-top:1rem; padding:1rem 1.2rem; background:rgba(0,0,0,.25); border-left:2px solid rgba(201,164,82,.35); font-size:.79rem; color:var(--or-pale); font-style:italic; line-height:1.75; }
+.tech-example::before { content:'Exemple concret :'; display:block; font-style:normal; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--texte-sec); margin-bottom:.4rem; }
+
+/* Contextes d'usage */
+.contexts { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2rem 0; }
+.context-card { padding:1.8rem; border:1px solid var(--border); background:var(--encre); }
+.context-icon { font-size:1.5rem; margin-bottom:.8rem; display:block; }
+.context-name { font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--creme); margin-bottom:.5rem; }
+.context-text { font-size:.79rem; color:var(--texte-sec); line-height:1.72; }
+
+/* Éthique */
+.ethique-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:2rem 0; }
+.ethique-card { padding:2rem; border:1px solid var(--border); }
+.ethique-card.oui { border-left:3px solid rgba(100,200,120,.5); background:rgba(100,200,120,.03); }
+.ethique-card.non { border-left:3px solid rgba(200,80,80,.5); background:rgba(200,80,80,.03); }
+.ethique-title { font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; margin-bottom:.8rem; }
+.ethique-card.oui .ethique-title { color:rgba(100,200,120,.8); }
+.ethique-card.non .ethique-title { color:rgba(200,80,80,.8); }
+.ethique-list { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+.ethique-list li { font-size:.81rem; color:var(--texte-sec); padding-left:1.2rem; position:relative; line-height:1.65; }
+.ethique-card.oui .ethique-list li::before { content:'✓'; position:absolute; left:0; color:rgba(100,200,120,.7); font-size:.78rem; }
+.ethique-card.non .ethique-list li::before { content:'✗'; position:absolute; left:0; color:rgba(200,80,80,.7); font-size:.78rem; }
+
+/* Analogie cerveau -->
+.brain-analogy { background:rgba(201,164,82,.04); border:1px solid var(--border); border-top:2px solid var(--or); padding:2.5rem; margin:2.5rem 0; }
+.brain-analogy-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--creme); margin-bottom:1.2rem; }
+
+@media(max-width:900px){
+  .rp-hero-concept { grid-template-columns:1fr; }
+  .techniques-grid { grid-template-columns:1fr; }
+  .contexts { grid-template-columns:1fr; }
+  .ethique-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-line"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow"><a href="index.html">Accueil</a> &nbsp;/&nbsp; Rupture de pattern</div>
+    <h1 class="page-hero-title">La rupture <em>de pattern</em></h1>
+    <p class="page-hero-sub">Interrompre un automatisme mental pour créer une ouverture de conscience — l'une des techniques les plus puissantes de l'hypnose et de la communication d'influence.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- INTRO -->
+  <div class="rp-hero-concept">
+    <div class="reveal">
+      <div class="s-eyebrow">Définition</div>
+      <h2 class="s-title">Qu'est-ce qu'une rupture <em>de pattern ?</em></h2>
+      <p style="font-size:.88rem;color:var(--texte-sec);line-height:1.85;margin-top:1rem">Un "pattern" (ou schéma) est une séquence automatique de comportements, pensées ou réponses que notre cerveau exécute sans effort conscient. Serrer la main de quelqu'un est un pattern. Répondre "ça va" quand on vous dit "bonjour" est un pattern. Conduire un trajet habituel est un pattern.</p>
+      <p style="font-size:.88rem;color:var(--texte-sec);line-height:1.85;margin-top:.8rem">La <strong style="color:var(--creme)">rupture de pattern</strong> consiste à interrompre brusquement et de façon inattendue cette séquence automatique, au moment précis où elle se déroule. Le cerveau, déséquilibré, se retrouve dans un état de confusion momentanée — une fenêtre de quelques secondes pendant laquelle le filtre critique est suspendu et où il est <strong style="color:var(--creme)">particulièrement réceptif à une suggestion ou une nouvelle direction</strong>.</p>
+      <p style="font-size:.88rem;color:var(--texte-sec);line-height:1.85;margin-top:.8rem">C'est l'une des techniques centrales de l'hypnose ericksonienne, de la PNL et des thérapies brèves. Elle est aussi — utilisée sans éthique — un outil de manipulation redoutable.</p>
+    </div>
+    <div class="reveal">
+      <div class="schema-box">
+        <div class="schema-title">Le mécanisme en temps réel</div>
+        <div class="schema-flow">
+          <div class="schema-node">
+            <div class="schema-node-icon">🔄</div>
+            <div class="schema-node-text"><strong>Déclencheur du pattern</strong><br>Un stimulus habituel active une séquence automatique (salutation, poignée de main, question banale…)</div>
+          </div>
+          <div class="schema-arrow">↓</div>
+          <div class="schema-node">
+            <div class="schema-node-icon">⚙️</div>
+            <div class="schema-node-text"><strong>Exécution automatique</strong><br>Les ganglions basaux et le cervelet prennent le relais. Le cortex préfrontal est en mode "veille". L'esprit critique est minimal.</div>
+          </div>
+          <div class="schema-arrow">↓</div>
+          <div class="schema-node interrupt">
+            <div class="schema-node-icon">⚡</div>
+            <div class="schema-node-text"><strong style="color:rgba(255,150,150,.9)">INTERRUPTION INATTENDUE</strong><br>La séquence est brisée avant sa conclusion. Le cerveau perd ses repères. État de confusion/désorientation momentanée (0.5–3 secondes).</div>
+          </div>
+          <div class="schema-arrow">↓</div>
+          <div class="schema-node open">
+            <div class="schema-node-icon">🌀</div>
+            <div class="schema-node-text"><strong style="color:rgba(150,220,150,.9)">Fenêtre de réceptivité</strong><br>Le cerveau cherche à "compléter" le pattern ou à trouver une nouvelle direction. C'est ici qu'une suggestion s'installe avec une efficacité remarquable.</div>
+          </div>
+          <div class="schema-arrow">↓</div>
+          <div class="schema-node">
+            <div class="schema-node-icon">✨</div>
+            <div class="schema-node-text"><strong>Nouvelle direction ancrée</strong><br>La suggestion introduite pendant la fenêtre est traitée comme une information prioritaire et acceptée avec moins de résistance qu'en état normal.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANALOGIE -->
+  <div class="brain-analogy reveal">
+    <div class="brain-analogy-title">L'analogie du disque vinyle</div>
+    <p style="font-size:.85rem;color:var(--texte-sec);line-height:1.85">Imaginez que le cerveau lit un disque vinyle. Le sillon est le pattern — une rainure creusée par la répétition. L'aiguille suit le sillon automatiquement, sans effort. Une rupture de pattern, c'est comme pousser brusquement l'aiguille hors du sillon. Le disque continue de tourner, mais l'aiguille est suspendue dans l'air pendant un instant — <strong style="color:var(--creme)">elle n'est nulle part</strong>. C'est dans cet instant de suspension que vous pouvez la reposer dans un sillon différent, de votre choix. En hypnose, ce nouveau sillon est la suggestion que vous introduisez.</p>
+  </div>
+
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- TECHNIQUES CONCRÈTES -->
+  <div class="reveal">
+    <div class="s-eyebrow">Techniques</div>
+    <h2 class="s-title">Les principales <em>méthodes</em></h2>
+    <p class="s-lead">Il existe plusieurs familles de ruptures de pattern. Chacune exploite un mécanisme neurologique légèrement différent.</p>
+  </div>
+
+  <div class="techniques-grid">
+
+    <div class="tech-card reveal">
+      <div class="tech-num">01</div>
+      <span class="tech-tag">Kinesthésique — Erickson</span>
+      <div class="tech-name">La poignée de main interrompue</div>
+      <div class="tech-text">
+        <p>C'est la rupture de pattern la plus célèbre, popularisée par Milton Erickson lui-même. Vous commencez une poignée de main — un pattern parmi les plus automatiques qui soit — et vous l'interrompez de façon inattendue, par exemple en saisissant le poignet plutôt que la main, ou en retirant votre main à mi-chemin.</p>
+        <p>Le cerveau de l'autre personne "attend" la conclusion du pattern (la pression de la main). En la lui retirant, vous créez une micro-confusion d'environ 1–3 secondes. Pendant ce temps, guidez doucement la main vers le haut ou introduisez une suggestion verbale.</p>
+        <p>Erickson utilisait ensuite ce moment pour introduire des inductions formelles en quelques mots. La personne entrait en transe debout, en quelques secondes.</p>
+      </div>
+      <div class="tech-example">Commencer à tendre la main → au moment où l'autre tend la sienne → saisir doucement son poignet et lever doucement le bras → regarder la main suspendue → "Et maintenant, laissez simplement cet état de curiosité vous envahir…"</div>
+    </div>
+
+    <div class="tech-card reveal">
+      <div class="tech-num">02</div>
+      <span class="tech-tag">Verbal — Conversationnel</span>
+      <div class="tech-name">La question déstabilisante</div>
+      <div class="tech-text">
+        <p>Une question inattendue, hors de propos ou logiquement absurde interrompt le flux de pensée habituel. Le cerveau abandonne temporairement son "agenda" pour tenter de répondre à la question — et se retrouve déstabilisé.</p>
+        <p>Cette technique est très utilisée dans les thérapies brèves et stratégiques. Elle fonctionne aussi dans le coaching pour sortir quelqu'un d'un état de ressassement ou d'une croyance limitante bien ancrée.</p>
+        <p>La clé : la question doit être posée avec un ton parfaitement calme et sérieux, sans sourire. Si l'interlocuteur perçoit l'humour, la confusion ne se produit pas.</p>
+      </div>
+      <div class="tech-example">Quelqu'un dit "Je suis nul en présentation, j'ai toujours le trac" → Vous répondez posément : "De quelle couleur est votre trac ?" → Silence de confusion → "Et si cette couleur pouvait changer progressivement vers une teinte plus…"</div>
+    </div>
+
+    <div class="tech-card reveal">
+      <div class="tech-num">03</div>
+      <span class="tech-tag">Comportemental — Thérapies brèves</span>
+      <div class="tech-name">La tâche absurde (prescriptions paradoxales)</div>
+      <div class="tech-text">
+        <p>Développée par Giorgio Nardone et Paul Watzlawick dans le cadre des thérapies brèves stratégiques, cette approche consiste à prescrire au patient un comportement qui <strong>va à l'encontre</strong> de son pattern problématique, ou quelque chose d'absurde qui en brise la logique interne.</p>
+        <p>Exemple classique avec l'insomniaque : au lieu de lui dire "essayez de dormir" (ce qu'il fait déjà en vain), lui prescrire de "rester éveillé coûte que coûte" toute la nuit. Ce paradoxe brise le pattern d'hyper-vigilance et, souvent, la personne s'endort.</p>
+        <p>Avec les phobiques : "Pendant une semaine, chaque fois que vous sentez votre peur arriver, dites-lui bonjour à voix haute et remerciez-la de vouloir vous protéger." Le pattern d'évitement est remplacé par un pattern d'accueil.</p>
+      </div>
+      <div class="tech-example">Patient: "Je n'arrive jamais à prendre de décisions" → Prescription: "Cette semaine, pour chaque petite décision (café ou thé, gauche ou droite), décidez par pile ou face — et respectez le résultat sans vous questionner."</div>
+    </div>
+
+    <div class="tech-card reveal">
+      <div class="tech-num">04</div>
+      <span class="tech-tag">Sensoriel — PNL</span>
+      <div class="tech-name">Le changement de sous-modalités</div>
+      <div class="tech-text">
+        <p>En PNL, chaque représentation mentale (souvenir, croyance, émotion) possède des "sous-modalités" : la taille de l'image mentale, sa luminosité, sa distance, si elle est en couleur ou en noir et blanc, le volume des sons associés, etc. Modifier ces paramètres brise le pattern émotionnel associé.</p>
+        <p>Si quelqu'un ressasse une critique reçue (image mentale grande, proche, colorée, avec une voix forte), lui demander d'imaginer cette image qui rétrécit, s'éloigne, perd ses couleurs, et dont la voix devient celle d'un canard interrompt l'automatisme émotionnel. La charge affective associée se dissout souvent en quelques secondes.</p>
+      </div>
+      <div class="tech-example">"Prenez cette image mentale qui vous pose problème… très bien… maintenant imaginez qu'elle rétrécit, qu'elle s'éloigne jusqu'à tenir dans votre paume, qu'elle devient noir et blanc… et que la voix associée devient celle d'un personnage de dessin animé… Que se passe-t-il ?"</div>
+    </div>
+
+    <div class="tech-card reveal">
+      <div class="tech-num">05</div>
+      <span class="tech-tag">Physique — Rapide</span>
+      <div class="tech-name">L'interruption physique directe</div>
+      <div class="tech-text">
+        <p>Dans certains contextes thérapeutiques avec accord du patient, une interruption physique inattendue — un claquement de doigts, une frappe dans les mains, ou un mouvement physique brusque — brise un état émotionnel négatif (rumination, panique, dissociation légère).</p>
+        <p>Cette technique est à utiliser avec une grande prudence et uniquement dans un cadre adapté. Elle n'est jamais utilisée sans rapport préalable fort et consentement du sujet. Elle peut être particulièrement utile pour sortir quelqu'un d'une réaction de stress intense ou d'une boucle de pensée négative récurrente.</p>
+        <p>En autohypnose, on peut l'appliquer à soi-même : claquer des doigts et dire "stop" fermement lorsqu'on détecte un pattern de pensée négatif automatique.</p>
+      </div>
+      <div class="tech-example">Patient en boucle d'anxiété intense → praticien (après accord préalable) frappe dans ses mains fort → "Et maintenant, regardez-moi… où êtes-vous en ce moment ?" → Réorientation dans le présent.</div>
+    </div>
+
+    <div class="tech-card reveal">
+      <div class="tech-num">06</div>
+      <span class="tech-tag">Linguistique — Avancé</span>
+      <div class="tech-name">Le non-sequitur hypnotique</div>
+      <div class="tech-text">
+        <p>Un non-sequitur est une phrase qui ne suit pas logiquement ce qui précède. En hypnose conversationnelle, une phrase totalement inattendue et hors contexte, prononcée avec un ton parfaitement calme et confiant, crée une confusion momentanée qui ouvre une fenêtre de suggestion.</p>
+        <p>Milton Erickson était un maître de cette technique. Il pouvait interrompre une conversation banale avec une observation apparemment absurde — et pendant que son interlocuteur cherchait le sens de la phrase, introduire une suggestion profonde qui contournait toute résistance.</p>
+        <p>Cette technique requiert beaucoup de pratique et de confiance. Utilisée maladroitement, elle crée simplement de la confusion sans ouverture utile.</p>
+      </div>
+      <div class="tech-example">En plein conversation → "Vous savez ce que m'a dit mon grand-père sur la façon dont les fleuves trouvent toujours leur chemin ?" → Pause de confusion → "Et c'est exactement comme ça que vous pouvez commencer à trouver votre propre chemin vers…"</div>
+    </div>
+
+  </div>
+
+  <!-- CONTEXTES D'USAGE -->
+  <div class="reveal" style="margin-top:3rem">
+    <div class="s-eyebrow">Applications</div>
+    <h2 class="s-title">Où et quand <em>l'utiliser</em></h2>
+  </div>
+  <div class="contexts">
+    <div class="context-card reveal">
+      <span class="context-icon">🧠</span>
+      <div class="context-name">Thérapie &amp; coaching</div>
+      <div class="context-text">Briser les croyances limitantes, sortir des boucles de rumination, interrompre les patterns phobiques. La rupture de pattern est un outil de premier plan dans les thérapies brèves, stratégiques et l'hypnothérapie.</div>
+    </div>
+    <div class="context-card reveal">
+      <span class="context-icon">🎙️</span>
+      <div class="context-name">Communication &amp; leadership</div>
+      <div class="context-text">Capter une audience perdue, interrompre une réunion qui déraille, sortir un interlocuteur d'une position défensive figée. Les grands orateurs et négociateurs utilisent des ruptures de pattern intuitives en permanence.</div>
+    </div>
+    <div class="context-card reveal">
+      <span class="context-icon">🏃</span>
+      <div class="context-name">Performance &amp; sport</div>
+      <div class="context-text">Sortir d'un état de "tête negative" avant une compétition, briser un pattern de défaite répétée. Les préparateurs mentaux utilisent des ancrages et ruptures de pattern avant les performances importantes.</div>
+    </div>
+    <div class="context-card reveal">
+      <span class="context-icon">👨‍👩‍👧</span>
+      <div class="context-name">Relations &amp; parentalité</div>
+      <div class="context-text">Désamorcer une dispute avant qu'elle s'emballe, sortir un enfant d'une crise émotionnelle, changer l'atmosphère d'un repas de famille tendu. Des formes douces de rupture de pattern sont naturellement utilisées par tous les parents efficaces.</div>
+    </div>
+    <div class="context-card reveal">
+      <span class="context-icon">🧘</span>
+      <div class="context-name">Autothérapie</div>
+      <div class="context-text">Appliquer des ruptures de pattern à ses propres automatismes mentaux. Identifier ses patterns négatifs récurrents et se créer des "interruptions" personnalisées : un mot-clé, un geste, une respiration spécifique qui signal le "stop".</div>
+    </div>
+    <div class="context-card reveal">
+      <span class="context-icon">🔬</span>
+      <div class="context-name">Recherche en neurosciences</div>
+      <div class="context-text">Les ruptures de pattern sont au cœur des recherches sur la plasticité neuronale, les habitudes et les addictions. La thérapie comportementale cognitive (TCC) utilise des formes structurées de rupture de pattern pour traiter les TOC, phobies et dépendances.</div>
+    </div>
+  </div>
+
+  <!-- ÉTHIQUE -->
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+  <div class="reveal">
+    <div class="s-eyebrow">Responsabilité</div>
+    <h2 class="s-title">Question <em>éthique</em></h2>
+    <p class="s-lead">La rupture de pattern est un outil puissant. Comme tout outil puissant, elle peut servir le bien-être ou le manipuler. La ligne est claire — si on se donne la peine de la regarder.</p>
+  </div>
+  <div class="ethique-grid">
+    <div class="ethique-card oui reveal">
+      <div class="ethique-title">✓ Usages éthiques</div>
+      <ul class="ethique-list">
+        <li>Utilisée avec le consentement du sujet, dans un cadre thérapeutique clair</li>
+        <li>Pour aider à briser des patterns qui <em>nuisent</em> à la personne elle-même</li>
+        <li>Dans un objectif de croissance, de liberté, de bien-être</li>
+        <li>Par un praticien formé, supervisé, et respectueux des limites</li>
+        <li>Avec un retour sur ce qui s'est passé, pour que la personne comprenne et intègre</li>
+        <li>Appliquée à soi-même pour ses propres patterns limitants</li>
+      </ul>
+    </div>
+    <div class="ethique-card non reveal">
+      <div class="ethique-title">✗ Dérives et manipulations</div>
+      <ul class="ethique-list">
+        <li>Utilisée sans le consentement de la personne, dans un but personnel</li>
+        <li>Pour implanter des suggestions qui servent l'intérêt du praticien, pas du sujet</li>
+        <li>Dans les sectes et organisations d'emprise : briser les défenses pour faciliter le recrutement</li>
+        <li>Dans la vente agressive : créer une confusion pour contourner le "non" du client</li>
+        <li>En politique : interrompre les repères logiques pour faire accepter des affirmations fausses</li>
+        <li>Dans les relations toxiques : déstabiliser pour maintenir l'emprise émotionnelle</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote-block reveal">
+    <blockquote>"La connaissance de ces techniques devrait être universelle — non pour manipuler, mais pour se protéger de la manipulation. Celui qui comprend le mécanisme est immunisé contre lui."</blockquote>
+    <cite>— Principe des thérapies stratégiques, École de Palo Alto</cite>
+  </div>
+
+  <!-- PRATIQUER SOI-MÊME -->
+  <div class="reveal" style="margin-top:3rem">
+    <div class="s-eyebrow">Pratique personnelle</div>
+    <h2 class="s-title">Identifier et briser ses propres <em>patterns</em></h2>
+  </div>
+
+  <div style="background:var(--brun);border:1px solid var(--border);padding:2.5rem;margin-bottom:3rem" class="reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+      <div>
+        <span style="font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--or);display:block;margin-bottom:.8rem">Étape 1 — Identifier le pattern</span>
+        <p style="font-size:.83rem;color:var(--texte-sec);line-height:1.82">Observez vos réactions automatiques pendant une semaine. Notez les situations qui déclenchent toujours la même réponse émotionnelle ou comportementale : irritabilité en réunion, procrastination dès que vous ouvrez un projet spécifique, faim soudaine devant l'ennui. <strong style="color:var(--creme)">Le déclencheur → la réaction automatique</strong>. C'est votre pattern.</p>
+      </div>
+      <div>
+        <span style="font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--or);display:block;margin-bottom:.8rem">Étape 2 — Créer votre interruption</span>
+        <p style="font-size:.83rem;color:var(--texte-sec);line-height:1.82">Concevez une rupture personnalisée : un mot que vous vous dites ("STOP" dit mentalement fermement), un geste (pincer votre pouce), une respiration spécifique (expiration brusque par la bouche). Entraînez-vous à l'appliquer <em>dès que vous reconnaissez le déclencheur</em> — avant que la réaction automatique soit lancée.</p>
+      </div>
+      <div>
+        <span style="font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--or);display:block;margin-bottom:.8rem">Étape 3 — Ancrer une nouvelle direction</span>
+        <p style="font-size:.83rem;color:var(--texte-sec);line-height:1.82">Après l'interruption, ne laissez pas un vide — le pattern ancien reviendra. Enchaînez immédiatement avec un comportement alternatif pré-décidé : 3 respirations profondes, une phrase d'auto-suggestion, un geste ancré à un état positif.</p>
+      </div>
+      <div>
+        <span style="font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--or);display:block;margin-bottom:.8rem">Étape 4 — Répéter jusqu'à la réorganisation</span>
+        <p style="font-size:.83rem;color:var(--texte-sec);line-height:1.82">Le nouveau pattern nécessite des répétitions pour s'installer — comptez 3 à 6 semaines de pratique quotidienne selon la profondeur de l'ancien pattern. La neuroplasticité fait le reste : le vieux sillon s'affaiblit, le nouveau se creuse.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:2rem 0 1rem" class="reveal">
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="mythes.html" style="padding:.85rem 2.5rem;background:var(--or);color:var(--noir);text-decoration:none;font-size:.77rem;letter-spacing:.14em;text-transform:uppercase;font-family:'DM Sans',sans-serif;border-radius:1px;display:inline-block">Mythes &amp; Réalités →</a>
+      <a href="induction.html" style="padding:.85rem 2.5rem;border:1px solid var(--border-fort);color:var(--or);text-decoration:none;font-size:.77rem;letter-spacing:.14em;text-transform:uppercase;font-family:'DM Sans',sans-serif;border-radius:1px;display:inline-block">← Guide d'induction</a>
+    </div>
+  </div>
+
+</div>
+
+<script src="nav.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*65); });
+  }, {threshold:.05});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+});
+</script>
+</body>
+</html>
