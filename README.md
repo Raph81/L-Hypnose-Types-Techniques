@@ -1,4 +1,4 @@
-# L-Hypnose-Types-Techniques
+# L'Hypnose — Types & Techniques
 
 Le site **L'Hypnose — Types & Techniques** est un site éducatif multi-pages dédié à l'apprentissage sérieux et éthique de l'hypnose.
 
